@@ -1,0 +1,8 @@
+package dev.edescart.descarte.domain.enums;
+
+public enum TipoDoItem {
+	
+	NOTEBOOK, COMPUTADOR, MONITOR, ACESSORIOS, IMPRESSORA, CARTUCHO, FONTE, NOBREAK, ROTEADOR, FIREWALL, SWITCH, RACK,
+	TELEFONE, CAMERA, DVR, FIOS_E_CABOS;
+
+}
