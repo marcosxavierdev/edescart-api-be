@@ -1,6 +1,8 @@
 package dev.edescart.descarte.application.api.form;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import dev.edescart.descarte.domain.Descarte;
 import dev.edescart.descarte.domain.enums.DescarteAntecipado;
@@ -22,7 +24,9 @@ public class CadastraDescarteFORM {
 	private String cliente;
 	private String autorizacaoEmpresa;
 	private String tecnicoResponsavel;
-	private LocalDateTime dataEntrada = LocalDateTime.now();
+	private LocalDate dataEntrada = LocalDate.now();
+
+	
 	private int descartarEm;
 	private String motivoDescarte;
 	private String origemObservacao;

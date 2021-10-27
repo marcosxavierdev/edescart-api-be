@@ -1,6 +1,6 @@
 package dev.edescart.descarte.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +33,7 @@ public class Descarte {
 	private String cliente;
 	private String autorizacaoEmpresa;
 	private String tecnicoResponsavel;
-	private LocalDateTime dataEntrada;
+	private LocalDate dataEntrada;
 	private int descartarEm;
 	private String motivoDescarte;
 	private String origemObservacao;

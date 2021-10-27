@@ -1,6 +1,6 @@
 package dev.edescart.descarte.application.api.dto;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import dev.edescart.descarte.domain.Descarte;
 import dev.edescart.descarte.domain.enums.SituacaoDoItem;
@@ -20,7 +20,7 @@ public class AtualizaDescarteDTO {
 	private String cliente;
 	private String autorizacaoEmpresa;
 	private String tecnicoResponsavel;
-	private LocalDateTime dataEntrada;
+	private LocalDate dataEntrada;
 	private int descartarEm;
 	private String motivoDescarte;
 	private String origemObservacao;
