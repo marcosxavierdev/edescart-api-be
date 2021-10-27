@@ -103,10 +103,4 @@ public class DescarteRestController implements DescarteAPI {
 		return BuscaDescarteDTO.toList(descartes);
 	}
 
-	@Override
-	public List<BuscaDescarteDTO> listaDescartesAVencer(String data) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

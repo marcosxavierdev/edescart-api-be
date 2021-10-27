@@ -63,8 +63,4 @@ public interface DescarteAPI {
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDescarteDTO> buscaDataEntrada(@RequestParam String data);
 	
-	@GetMapping("/listaAVencer")
-	@ResponseStatus(value = HttpStatus.OK)
-	List<BuscaDescarteDTO> listaDescartesAVencer(@RequestParam String data);
-
 }
