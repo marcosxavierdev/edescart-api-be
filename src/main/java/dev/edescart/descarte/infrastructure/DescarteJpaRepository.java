@@ -69,4 +69,12 @@ public class DescarteJpaRepository implements DescarteRepository {
 		return descartes;
 	}
 
+	@Override
+	public List<Descarte> buscaTecnicoPorNomeInfra(String nome) {
+		log.info("[Iniciando] - Método buscaTecnicoPorNomeInfra em DescarteJpaRepository");
+		List<Descarte> descartes = descarteSpringDataJpaRepository.findByTecnicoResponsavelContainingIgnoreCase(nome);
+		log.info("[Finalizando] - Método buscaTecnicoPorNomeInfra em DescarteJpaRepository");
+		return descartes;
+	}
+
 }

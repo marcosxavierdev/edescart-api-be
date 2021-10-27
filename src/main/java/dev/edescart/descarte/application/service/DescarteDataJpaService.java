@@ -71,4 +71,12 @@ public class DescarteDataJpaService implements DescarteService {
 		return descartes;
 	}
 
+	@Override
+	public List<Descarte> buscaTecnicoPorNomeService(String nome) {
+		log.info("[Iniciando] - Método buscaTecnicoPorNomeService em DescarteDataJpaService");
+		List<Descarte> descartes = this.descarteRepository.buscaTecnicoPorNomeInfra(nome);
+		log.info("[Finalizando] - Método buscaTecnicoPorNomeService em DescarteDataJpaService");
+		return descartes;
+	}
+
 }

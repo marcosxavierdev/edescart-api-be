@@ -12,4 +12,6 @@ public interface DescarteSpringDataJpaRepository extends JpaRepository<Descarte,
 
 	List<Descarte> findByClienteContainingIgnoreCase(String nome);
 
+	List<Descarte> findByTecnicoResponsavelContainingIgnoreCase(String nome);
+
 }

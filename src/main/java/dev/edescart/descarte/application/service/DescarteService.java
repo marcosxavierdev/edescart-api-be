@@ -23,4 +23,6 @@ public interface DescarteService {
 
 	List<Descarte> buscaClientePorNomeService(String nome);
 
+	List<Descarte> buscaTecnicoPorNomeService(String nome);
+
 }

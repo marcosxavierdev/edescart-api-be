@@ -91,4 +91,12 @@ public class DescarteRestController implements DescarteAPI {
 		return BuscaDescarteDTO.toList(descartes);
 	}
 
+	@Override
+	public List<BuscaDescarteDTO> buscaTecnicoPorNome(String nome) {
+		log.info("[Iniciando] - Método buscaTecnicoPorNome em DescarteRestController");
+		List<Descarte> descartes = descarteService.buscaTecnicoPorNomeService(nome);
+		log.info("[Finalizando] - Método buscaTecnicoPorNome em DescarteRestController");
+		return BuscaDescarteDTO.toList(descartes);
+	}
+
 }
