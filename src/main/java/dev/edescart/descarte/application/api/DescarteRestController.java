@@ -3,12 +3,10 @@ package dev.edescart.descarte.application.api;
 import java.net.URI;
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import dev.edescart.descarte.application.api.dto.AtualizaDescarteDTO;
 import dev.edescart.descarte.application.api.dto.BuscaDescarteDTO;
 import dev.edescart.descarte.application.api.dto.CadastraDescarteDTO;
 import dev.edescart.descarte.application.api.dto.ListaDescartesDTO;
@@ -96,6 +94,12 @@ public class DescarteRestController implements DescarteAPI {
 		log.info("[Iniciando] - Método buscaTecnicoPorNome em DescarteRestController");
 		List<Descarte> descartes = descarteService.buscaTecnicoPorNomeService(nome);
 		log.info("[Finalizando] - Método buscaTecnicoPorNome em DescarteRestController");
+		return BuscaDescarteDTO.toList(descartes);
+	}
+
+	@Override
+	public List<BuscaDescarteDTO> buscaDataEntrada(String data) {
+		List<Descarte> descartes = descarteService.buscaDataEntradaService(data);
 		return BuscaDescarteDTO.toList(descartes);
 	}
 

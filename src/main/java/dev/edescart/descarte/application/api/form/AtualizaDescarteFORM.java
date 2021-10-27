@@ -1,6 +1,7 @@
 package dev.edescart.descarte.application.api.form;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import dev.edescart.descarte.domain.Descarte;
 import dev.edescart.descarte.domain.enums.SituacaoDoItem;
@@ -23,7 +24,7 @@ public class AtualizaDescarteFORM {
 	private String cliente;
 	private String autorizacaoEmpresa;
 	private String tecnicoResponsavel;
-	private LocalDate dataEntrada = LocalDate.now();
+	private String dataEntrada = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	private int descartarEm;
 	private String motivoDescarte;
 	private String origemObservacao;

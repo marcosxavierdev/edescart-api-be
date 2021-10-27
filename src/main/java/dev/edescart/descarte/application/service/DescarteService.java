@@ -1,5 +1,6 @@
 package dev.edescart.descarte.application.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -24,5 +25,7 @@ public interface DescarteService {
 	List<Descarte> buscaClientePorNomeService(String nome);
 
 	List<Descarte> buscaTecnicoPorNomeService(String nome);
+
+	List<Descarte> buscaDataEntradaService(String data);
 
 }

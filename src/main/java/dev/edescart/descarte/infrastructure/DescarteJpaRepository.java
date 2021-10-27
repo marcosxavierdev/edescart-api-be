@@ -77,4 +77,10 @@ public class DescarteJpaRepository implements DescarteRepository {
 		return descartes;
 	}
 
+	@Override
+	public List<Descarte> buscaDataEntradaInfra(String data) {
+		List<Descarte> descartes = descarteSpringDataJpaRepository.findByDataEntrada(data);
+		return descartes;
+	}
+
 }

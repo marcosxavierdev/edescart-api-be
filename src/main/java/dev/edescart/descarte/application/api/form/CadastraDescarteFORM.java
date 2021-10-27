@@ -1,6 +1,5 @@
 package dev.edescart.descarte.application.api.form;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -24,9 +23,7 @@ public class CadastraDescarteFORM {
 	private String cliente;
 	private String autorizacaoEmpresa;
 	private String tecnicoResponsavel;
-	private LocalDate dataEntrada = LocalDate.now();
-
-	
+	private String dataEntrada = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	private int descartarEm;
 	private String motivoDescarte;
 	private String origemObservacao;
@@ -36,9 +33,9 @@ public class CadastraDescarteFORM {
 	private DescarteAntecipado descarteAntecipado;
 
 	public Descarte toEntity() {
-		return new Descarte(id, nome, modelo, marca, unidade, quantidade, observacao, cliente,
-				autorizacaoEmpresa, tecnicoResponsavel, dataEntrada, descartarEm, motivoDescarte, origemObservacao,
-				situacaoDoItem, tipoDoItem);
+		return new Descarte(id, nome, modelo, marca, unidade, quantidade, observacao, cliente, autorizacaoEmpresa,
+				tecnicoResponsavel, dataEntrada, descartarEm, motivoDescarte, origemObservacao, situacaoDoItem,
+				tipoDoItem);
 	}
 
 }

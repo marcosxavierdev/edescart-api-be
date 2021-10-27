@@ -1,6 +1,5 @@
 package dev.edescart.descarte.application.api.dto;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,7 +21,7 @@ public class ListaDescartesDTO {
 	private String cliente;
 	private String autorizacaoEmpresa;
 	private String tecnicoResponsavel;
-	private LocalDate dataEntrada;
+	private String dataEntrada;
 	private int descartarEm;
 	private String motivoDescarte;
 	private String origemObservacao;

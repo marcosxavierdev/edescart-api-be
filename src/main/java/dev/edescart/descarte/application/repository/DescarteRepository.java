@@ -26,4 +26,6 @@ public interface DescarteRepository {
 
 	List<Descarte> buscaTecnicoPorNomeInfra(String nome);
 
+	List<Descarte> buscaDataEntradaInfra(String data);
+
 }

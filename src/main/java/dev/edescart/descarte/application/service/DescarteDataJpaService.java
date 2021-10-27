@@ -79,4 +79,10 @@ public class DescarteDataJpaService implements DescarteService {
 		return descartes;
 	}
 
+	@Override
+	public List<Descarte> buscaDataEntradaService(String data) {
+		List<Descarte> descartes = this.descarteRepository.buscaDataEntradaInfra(data);
+		return descartes;
+	}
+
 }

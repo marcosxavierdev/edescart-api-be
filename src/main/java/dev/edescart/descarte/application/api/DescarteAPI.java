@@ -53,9 +53,13 @@ public interface DescarteAPI {
 	@GetMapping("/buscaCliente")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDescarteDTO> buscaClientePorNome(@RequestParam String nome);
-	
+
 	@GetMapping("/buscaTecnico")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDescarteDTO> buscaTecnicoPorNome(@RequestParam String nome);
+
+	@GetMapping("/buscaDataEntrada")
+	@ResponseStatus(value = HttpStatus.OK)
+	List<BuscaDescarteDTO> buscaDataEntrada(@RequestParam String data);
 
 }
