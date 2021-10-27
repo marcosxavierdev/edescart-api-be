@@ -81,7 +81,9 @@ public class DescarteDataJpaService implements DescarteService {
 
 	@Override
 	public List<Descarte> buscaDataEntradaService(String data) {
+		log.info("[Iniciando] - Método buscaDataEntradaService em DescarteDataJpaService");
 		List<Descarte> descartes = this.descarteRepository.buscaDataEntradaInfra(data);
+		log.info("[Finalizando] - Método buscaDataEntradaService em DescarteDataJpaService");
 		return descartes;
 	}
 

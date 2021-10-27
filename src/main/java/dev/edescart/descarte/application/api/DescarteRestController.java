@@ -99,7 +99,9 @@ public class DescarteRestController implements DescarteAPI {
 
 	@Override
 	public List<BuscaDescarteDTO> buscaDataEntrada(String data) {
+		log.info("[Iniciando] - Método buscaDataEntrada em DescarteRestController");
 		List<Descarte> descartes = descarteService.buscaDataEntradaService(data);
+		log.info("[Finalizando] - Método buscaDataEntrada em DescarteRestController");
 		return BuscaDescarteDTO.toList(descartes);
 	}
 

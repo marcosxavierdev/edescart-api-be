@@ -79,7 +79,9 @@ public class DescarteJpaRepository implements DescarteRepository {
 
 	@Override
 	public List<Descarte> buscaDataEntradaInfra(String data) {
+		log.info("[Iniciando] - Método buscaDataEntradaInfra em DescarteJpaRepository");
 		List<Descarte> descartes = descarteSpringDataJpaRepository.findByDataEntrada(data);
+		log.info("[Finalizando] - Método buscaDataEntradaInfra em DescarteJpaRepository");
 		return descartes;
 	}
 
