@@ -30,54 +30,54 @@ public class DescarteRestController implements DescarteAPI {
 	}
 
 	@Override
-	public BuscaDescarteDTO buscaEquipamentoPorId(Long idEquipamento) {
-		log.info("[Iniciando] - Método buscaEquipamentoPorId em DescarteRestController");
-		log.info("[Buscando] - Id em DescarteRestController: {}", idEquipamento);
-		Descarte descarte = descarteService.buscaEquipamentoPorIdService(idEquipamento);
-		log.info("[Finalizando] - Método buscaEquipamentoPorId em DescarteRestController");
+	public BuscaDescarteDTO buscaDescartePorId(Long idDescarte) {
+		log.info("[Iniciando] - Método buscaDescartePorId em DescarteRestController");
+		log.info("[Buscando] - Id em DescarteRestController: {}", idDescarte);
+		Descarte descarte = descarteService.buscaDescartePorIdService(idDescarte);
+		log.info("[Finalizando] - Método buscaDescartePorId em DescarteRestController");
 		return new BuscaDescarteDTO(descarte);
 	}
 
 	@Override
-	public ResponseEntity<CadastraDescarteDTO> cadastraEquipamento(CadastraDescarteFORM cadastraDescarteFORM,
+	public ResponseEntity<CadastraDescarteDTO> cadastraDescarte(CadastraDescarteFORM cadastraDescarteFORM,
 			UriComponentsBuilder uriBuilder) {
-		log.info("[Iniciando] - Método cadastraEquipamento em DescarteRestController");
-		Descarte descarte = descarteService.cadastraEquipamentoService(cadastraDescarteFORM.toEntity());
+		log.info("[Iniciando] - Método cadastraDescarte em DescarteRestController");
+		Descarte descarte = descarteService.cadastraDescarteService(cadastraDescarteFORM.toEntity());
 		URI uri = uriBuilder.path("/").buildAndExpand(descarte.getId()).toUri();
-		log.info("[Finalizando] - Método cadastraEquipamento em DescarteRestController");
+		log.info("[Finalizando] - Método cadastraDescarte em DescarteRestController");
 		return ResponseEntity.created(uri).body(new CadastraDescarteDTO(descarte));
 	}
 
 	@Override
-	public ResponseEntity<Void> deletaEquipamento(Long idEquipamento) {
-		log.info("[Iniciando] - Método deletaEquipamento em DescarteRestController");
-		if (!descarteService.verificaIdService(idEquipamento)) {
-			log.info("[Finalizando] - Método deletaEquipamento em DescarteRestController [NOT FOUND]");
+	public ResponseEntity<Void> deletaDescarte(Long idDescarte) {
+		log.info("[Iniciando] - Método deletaDescarte em DescarteRestController");
+		if (!descarteService.verificaIdService(idDescarte)) {
+			log.info("[Finalizando] - Método deletaDescarte em DescarteRestController [NOT FOUND]");
 			return ResponseEntity.notFound().build();
 		}
-		descarteService.deletaEquipamentoService(idEquipamento);
-		log.info("[Finalizando] - Método deletaEquipamento em DescarteRestController [OK]");
+		descarteService.deletaDescarteService(idDescarte);
+		log.info("[Finalizando] - Método deletaDescarte em DescarteRestController [OK]");
 		return ResponseEntity.noContent().build();
 	}
 
 	@Override
-	public ResponseEntity<?> atualizaEquipamento(Long idEquipamento, AtualizaDescarteFORM atualizaDescarteFORM) {
-		log.info("[Iniciando] - Método atualizaEquipamento em DescarteRestController");
-		if (!descarteService.verificaIdService(idEquipamento)) {
-			log.info("[Finalizando] - Método atualizaEquipamento em DescarteRestController [NOT FOUND]");
+	public ResponseEntity<?> atualizaDescarte(Long idDescarte, AtualizaDescarteFORM atualizaDescarteFORM) {
+		log.info("[Iniciando] - Método atualizaDescarte em DescarteRestController");
+		if (!descarteService.verificaIdService(idDescarte)) {
+			log.info("[Finalizando] - Método atualizaDescarte em DescarteRestController [NOT FOUND]");
 			return ResponseEntity.notFound().build();
 		}
-		atualizaDescarteFORM.setId(idEquipamento);
-		Descarte descarte = descarteService.atualizaEquipamentoService(atualizaDescarteFORM.toEntity());
-		log.info("[Finalizando] - Método atualizaEquipamento em DescarteRestController [OK]");
+		atualizaDescarteFORM.setId(idDescarte);
+		Descarte descarte = descarteService.atualizaDescarteService(atualizaDescarteFORM.toEntity());
+		log.info("[Finalizando] - Método atualizaDescarte em DescarteRestController [OK]");
 		return ResponseEntity.ok(descarte);
 	}
 
 	@Override
-	public List<ListaDescartesDTO> listaEquipamentos() {
-		log.info("[Iniciando] - Método listaEquipamentos em DescarteRestController");
-		List<Descarte> descartes = descarteService.listaEquipamentosService();
-		log.info("[Finalizando] - Método listaEquipamentos em DescarteRestController");
+	public List<ListaDescartesDTO> listaDescartes() {
+		log.info("[Iniciando] - Método listaDescartes em DescarteRestController");
+		List<Descarte> descartes = descarteService.listaDescartesService();
+		log.info("[Finalizando] - Método listaDescartes em DescarteRestController");
 		return ListaDescartesDTO.toList(descartes);
 	}
 
@@ -101,6 +101,12 @@ public class DescarteRestController implements DescarteAPI {
 	public List<BuscaDescarteDTO> buscaDataEntrada(String data) {
 		List<Descarte> descartes = descarteService.buscaDataEntradaService(data);
 		return BuscaDescarteDTO.toList(descartes);
+	}
+
+	@Override
+	public List<BuscaDescarteDTO> listaDescartesAVencer(String data) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

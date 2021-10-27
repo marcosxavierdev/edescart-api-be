@@ -29,26 +29,27 @@ public interface DescarteAPI {
 	@GetMapping("/test")
 	String test();
 
-	@GetMapping("/buscaEquipamento/{idEquipamento}")
+	@GetMapping("/buscaPorId/{idDescarte}")
 	@ResponseStatus(value = HttpStatus.OK)
-	BuscaDescarteDTO buscaEquipamentoPorId(@PathVariable Long idEquipamento);
+	BuscaDescarteDTO buscaDescartePorId(@PathVariable Long idDescarte);
 
-	@PostMapping("/cadastraEquipamento")
+	@PostMapping("/cadastra")
 	@ResponseStatus(value = HttpStatus.CREATED)
-	ResponseEntity<CadastraDescarteDTO> cadastraEquipamento(@RequestBody CadastraDescarteFORM cadastraDescarteFORM,
+	ResponseEntity<CadastraDescarteDTO> cadastraDescarte(@RequestBody CadastraDescarteFORM cadastraDescarteFORM,
 			UriComponentsBuilder uriBuilder);
 
-	@DeleteMapping("/deletaEquipamento/{idEquipamento}")
-	ResponseEntity<Void> deletaEquipamento(@PathVariable Long idEquipamento);
+	@DeleteMapping("/deleta/{idDescarte}")
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	ResponseEntity<Void> deletaDescarte(@PathVariable Long idDescarte);
 
-	@PutMapping("/atualizaEquipamento/{idEquipamento}")
+	@PutMapping("/atualiza/{idDescarte}")
 	@ResponseStatus(value = HttpStatus.OK)
-	ResponseEntity<?> atualizaEquipamento(@PathVariable Long idEquipamento,
+	ResponseEntity<?> atualizaDescarte(@PathVariable Long idDescarte,
 			@RequestBody AtualizaDescarteFORM atualizaDescarteFORM);
 
-	@GetMapping("/listaEquipamentos")
+	@GetMapping("/listaDescartes")
 	@ResponseStatus(value = HttpStatus.OK)
-	List<ListaDescartesDTO> listaEquipamentos();
+	List<ListaDescartesDTO> listaDescartes();
 
 	@GetMapping("/buscaCliente")
 	@ResponseStatus(value = HttpStatus.OK)
@@ -61,5 +62,9 @@ public interface DescarteAPI {
 	@GetMapping("/buscaDataEntrada")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDescarteDTO> buscaDataEntrada(@RequestParam String data);
+	
+	@GetMapping("/listaAVencer")
+	@ResponseStatus(value = HttpStatus.OK)
+	List<BuscaDescarteDTO> listaDescartesAVencer(@RequestParam String data);
 
 }

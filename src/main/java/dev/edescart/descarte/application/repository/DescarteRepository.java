@@ -10,15 +10,15 @@ import dev.edescart.descarte.domain.Descarte;
 @Repository
 public interface DescarteRepository {
 
-	Optional<Descarte> buscaEquipamentoPorIdInfra(Long idEquipamento);
+	Optional<Descarte> buscaDescartePorIdInfra(Long idDescarte);
 
-	Descarte cadastraEquipamentoInfra(Descarte descarte);
+	Descarte cadastraDescarteInfra(Descarte descarte);
 
-	boolean verificaIdInfra(Long IdEquipamento);
+	boolean verificaIdInfra(Long idDescarte);
 
-	void deletaEquipamentoInfra(Long idEquipamento);
+	void deletaDescarteInfra(Long idDescarte);
 
-	Descarte atualizaEquipamentoInfra(Descarte descarte);
+	Descarte atualizaDescarteInfra(Descarte descarte);
 
 	List<Descarte> listaEquipamentosInfra();
 

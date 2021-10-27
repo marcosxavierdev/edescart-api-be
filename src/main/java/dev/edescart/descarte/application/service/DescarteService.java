@@ -10,17 +10,17 @@ import dev.edescart.descarte.domain.Descarte;
 @Service
 public interface DescarteService {
 
-	Descarte buscaEquipamentoPorIdService(Long idEquipamento);
+	Descarte buscaDescartePorIdService(Long idDescarte);
 
-	Descarte cadastraEquipamentoService(Descarte descarte);
+	Descarte cadastraDescarteService(Descarte descarte);
 
-	boolean verificaIdService(Long idEquipamento);
+	boolean verificaIdService(Long idDescarte);
 
-	void deletaEquipamentoService(Long idEquipamento);
+	void deletaDescarteService(Long idDescarte);
 
-	Descarte atualizaEquipamentoService(Descarte descarte);
+	Descarte atualizaDescarteService(Descarte descarte);
 
-	List<Descarte> listaEquipamentosService();
+	List<Descarte> listaDescartesService();
 
 	List<Descarte> buscaClientePorNomeService(String nome);
 
