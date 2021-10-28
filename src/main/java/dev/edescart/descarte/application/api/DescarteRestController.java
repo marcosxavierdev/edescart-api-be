@@ -7,9 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import dev.edescart.descarte.application.api.dto.BuscaDescarteDTO;
 import dev.edescart.descarte.application.api.dto.CadastraDescarteDTO;
-import dev.edescart.descarte.application.api.dto.ListaDescartesDTO;
+import dev.edescart.descarte.application.api.dto.ResultadoBuscaDescarteDTO;
 import dev.edescart.descarte.application.api.form.AtualizaDescarteFORM;
 import dev.edescart.descarte.application.api.form.CadastraDescarteFORM;
 import dev.edescart.descarte.application.service.DescarteService;
@@ -30,12 +29,12 @@ public class DescarteRestController implements DescarteAPI {
 	}
 
 	@Override
-	public BuscaDescarteDTO buscaDescartePorId(Long idDescarte) {
+	public ResultadoBuscaDescarteDTO buscaDescartePorId(Long idDescarte) {
 		log.info("[Iniciando] - Método buscaDescartePorId em DescarteRestController");
 		log.info("[Buscando] - Id em DescarteRestController: {}", idDescarte);
 		Descarte descarte = descarteService.buscaDescartePorIdService(idDescarte);
 		log.info("[Finalizando] - Método buscaDescartePorId em DescarteRestController");
-		return new BuscaDescarteDTO(descarte);
+		return new ResultadoBuscaDescarteDTO(descarte);
 	}
 
 	@Override
@@ -74,35 +73,35 @@ public class DescarteRestController implements DescarteAPI {
 	}
 
 	@Override
-	public List<ListaDescartesDTO> listaDescartes() {
+	public List<ResultadoBuscaDescarteDTO> listaDescartes() {
 		log.info("[Iniciando] - Método listaDescartes em DescarteRestController");
 		List<Descarte> descartes = descarteService.listaDescartesService();
 		log.info("[Finalizando] - Método listaDescartes em DescarteRestController");
-		return ListaDescartesDTO.toList(descartes);
+		return ResultadoBuscaDescarteDTO.toList(descartes);
 	}
 
 	@Override
-	public List<BuscaDescarteDTO> buscaClientePorNome(String nome) {
+	public List<ResultadoBuscaDescarteDTO> buscaClientePorNome(String nome) {
 		log.info("[Iniciando] - Método buscaClientePorNome em DescarteRestController");
 		List<Descarte> descartes = descarteService.buscaClientePorNomeService(nome);
 		log.info("[Finalizando] - Método buscaClientePorNome em DescarteRestController");
-		return BuscaDescarteDTO.toList(descartes);
+		return ResultadoBuscaDescarteDTO.toList(descartes);
 	}
 
 	@Override
-	public List<BuscaDescarteDTO> buscaTecnicoPorNome(String nome) {
+	public List<ResultadoBuscaDescarteDTO> buscaTecnicoPorNome(String nome) {
 		log.info("[Iniciando] - Método buscaTecnicoPorNome em DescarteRestController");
 		List<Descarte> descartes = descarteService.buscaTecnicoPorNomeService(nome);
 		log.info("[Finalizando] - Método buscaTecnicoPorNome em DescarteRestController");
-		return BuscaDescarteDTO.toList(descartes);
+		return ResultadoBuscaDescarteDTO.toList(descartes);
 	}
 
 	@Override
-	public List<BuscaDescarteDTO> buscaDataEntrada(String data) {
+	public List<ResultadoBuscaDescarteDTO> buscaDataEntrada(String data) {
 		log.info("[Iniciando] - Método buscaDataEntrada em DescarteRestController");
 		List<Descarte> descartes = descarteService.buscaDataEntradaService(data);
 		log.info("[Finalizando] - Método buscaDataEntrada em DescarteRestController");
-		return BuscaDescarteDTO.toList(descartes);
+		return ResultadoBuscaDescarteDTO.toList(descartes);
 	}
 
 }

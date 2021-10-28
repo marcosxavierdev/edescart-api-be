@@ -9,7 +9,7 @@ import dev.edescart.descarte.domain.enums.TipoDoItem;
 import lombok.Getter;
 
 @Getter
-public class ListaDescartesDTO {
+public class ResultadoBuscaDescarteDTO {
 
 	private Long id;
 	private String nome;
@@ -25,11 +25,10 @@ public class ListaDescartesDTO {
 	private int descartarEm;
 	private String motivoDescarte;
 	private String origemObservacao;
-
 	private SituacaoDoItem situacaoDoItem;
 	private TipoDoItem tipoDoItem;
 
-	public ListaDescartesDTO(Descarte descarte) {
+	public ResultadoBuscaDescarteDTO(Descarte descarte) {
 		this.id = descarte.getId();
 		this.nome = descarte.getNome();
 		this.modelo = descarte.getModelo();
@@ -44,13 +43,12 @@ public class ListaDescartesDTO {
 		this.descartarEm = descarte.getDescartarEm();
 		this.motivoDescarte = descarte.getMotivoDescarte();
 		this.origemObservacao = descarte.getOrigemObservacao();
-
 		this.situacaoDoItem = descarte.getSituacaoDoItem();
 		this.tipoDoItem = descarte.getTipoDoItem();
 	}
 
-	public static List<ListaDescartesDTO> toList(List<Descarte> descartes) {
-		return descartes.stream().map(ListaDescartesDTO::new).collect(Collectors.toList());
+	public static List<ResultadoBuscaDescarteDTO> toList(List<Descarte> descartes) {
+		return descartes.stream().map(ResultadoBuscaDescarteDTO::new).collect(Collectors.toList());
 	}
 
 }
