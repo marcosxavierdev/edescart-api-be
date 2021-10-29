@@ -1,7 +1,6 @@
 package dev.edescart.descarte.application.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 

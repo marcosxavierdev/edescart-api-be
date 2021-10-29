@@ -10,10 +10,12 @@ import dev.edescart.descarte.domain.enums.SituacaoDoItem;
 import dev.edescart.descarte.domain.enums.TipoDoItem;
 import dev.edescart.destino.domain.Destino;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Builder
 @Entity
 @Getter
 @Setter
@@ -40,7 +42,7 @@ public class Descarte {
 
 	private SituacaoDoItem situacaoDoItem;
 	private TipoDoItem tipoDoItem;
-	
+
 	@OneToOne
 	private Destino destino;
 

@@ -41,7 +41,7 @@ public class DescarteRestController implements DescarteAPI {
 	public ResponseEntity<CadastraDescarteDTO> cadastraDescarte(CadastraDescarteFORM cadastraDescarteFORM,
 			UriComponentsBuilder uriBuilder) {
 		log.info("[Iniciando] - Método cadastraDescarte em DescarteRestController");
-		Descarte descarte = descarteService.cadastraDescarteService(cadastraDescarteFORM.toEntity());
+		Descarte descarte = descarteService.cadastraDescarteService(cadastraDescarteFORM.buildDescarte());
 		URI uri = uriBuilder.path("/").buildAndExpand(descarte.getId()).toUri();
 		log.info("[Finalizando] - Método cadastraDescarte em DescarteRestController");
 		return ResponseEntity.created(uri).body(new CadastraDescarteDTO(descarte));
@@ -67,7 +67,7 @@ public class DescarteRestController implements DescarteAPI {
 			return ResponseEntity.notFound().build();
 		}
 		atualizaDescarteFORM.setId(idDescarte);
-		Descarte descarte = descarteService.atualizaDescarteService(atualizaDescarteFORM.toEntity());
+		Descarte descarte = descarteService.atualizaDescarteService(atualizaDescarteFORM.buildDescarte());
 		log.info("[Finalizando] - Método atualizaDescarte em DescarteRestController [OK]");
 		return ResponseEntity.ok(descarte);
 	}

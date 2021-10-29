@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 import dev.edescart.descarte.domain.Descarte;
 import dev.edescart.descarte.domain.enums.SituacaoDoItem;
 import dev.edescart.descarte.domain.enums.TipoDoItem;
-import dev.edescart.destino.domain.DescarteAntecipado;
 import lombok.Getter;
 
 @Getter
@@ -30,12 +29,14 @@ public class CadastraDescarteFORM {
 
 	private SituacaoDoItem situacaoDoItem;
 	private TipoDoItem tipoDoItem;
-	private DescarteAntecipado descarteAntecipado;
 
-	public Descarte toEntity() {
-		return new Descarte(id, nome, modelo, marca, unidade, quantidade, observacao, cliente, autorizacaoEmpresa,
-				tecnicoResponsavel, dataEntrada, descartarEm, motivoDescarte, origemObservacao, situacaoDoItem,
-				tipoDoItem);
+	public Descarte buildDescarte() {
+		return Descarte.builder().nome(this.nome).modelo(this.modelo).marca(this.marca).unidade(this.unidade)
+				.quantidade(this.quantidade).observacao(this.observacao).cliente(this.cliente)
+				.autorizacaoEmpresa(this.autorizacaoEmpresa).tecnicoResponsavel(this.tecnicoResponsavel)
+				.dataEntrada(this.dataEntrada).descartarEm(this.descartarEm).motivoDescarte(this.motivoDescarte)
+				.origemObservacao(this.origemObservacao).situacaoDoItem(this.situacaoDoItem).tipoDoItem(this.tipoDoItem)
+				.build();
 	}
 
 }

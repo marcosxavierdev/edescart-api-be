@@ -1,7 +1,5 @@
 package dev.edescart.destino.domain;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,10 +8,12 @@ import javax.persistence.OneToOne;
 
 import dev.edescart.descarte.domain.Descarte;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Builder
 @Entity
 @Getter
 @Setter
@@ -27,11 +27,11 @@ public class Destino {
 	private String destino;
 	private String autorizacaoDestino;
 	private String contatoDestino;
-	private LocalDateTime dataSaida;
+	private String dataSaida;
 	private String ObservacaoDestino;
-	
+
 	private DescarteAntecipado descarteAntecipado;
-	
+
 	@OneToOne
 	private Descarte descarte;
 

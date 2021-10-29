@@ -1,0 +1,27 @@
+package dev.edescart.destino.application.api;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import dev.edescart.destino.domain.DescarteAntecipado;
+import dev.edescart.destino.domain.Destino;
+import lombok.Value;
+
+@Value
+public class CriaDestinoFORM {
+
+	private String destino;
+	private String autorizacaoDestino;
+	private String contatoDestino;
+	private String dataSaida = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+	private String ObservacaoDestino;
+
+	private DescarteAntecipado descarteAntecipado;
+
+	public Destino buildDestino() {
+		return Destino.builder().autorizacaoDestino(this.autorizacaoDestino).contatoDestino(this.contatoDestino)
+				.dataSaida(this.dataSaida).ObservacaoDestino(this.ObservacaoDestino)
+				.descarteAntecipado(this.descarteAntecipado).build();
+	}
+
+}
