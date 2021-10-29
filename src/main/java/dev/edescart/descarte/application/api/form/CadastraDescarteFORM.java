@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import dev.edescart.descarte.domain.Descarte;
-import dev.edescart.descarte.domain.enums.DescarteAntecipado;
 import dev.edescart.descarte.domain.enums.SituacaoDoItem;
 import dev.edescart.descarte.domain.enums.TipoDoItem;
+import dev.edescart.destino.domain.DescarteAntecipado;
 import lombok.Getter;
 
 @Getter

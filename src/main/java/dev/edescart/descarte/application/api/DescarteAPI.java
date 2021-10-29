@@ -2,6 +2,8 @@ package dev.edescart.descarte.application.api;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,10 +39,12 @@ public interface DescarteAPI {
 	ResponseEntity<CadastraDescarteDTO> cadastraDescarte(@RequestBody CadastraDescarteFORM cadastraDescarteFORM,
 			UriComponentsBuilder uriBuilder);
 
+	@Transactional
 	@DeleteMapping("/deleta/{idDescarte}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	ResponseEntity<Void> deletaDescarte(@PathVariable Long idDescarte);
 
+	@Transactional
 	@PutMapping("/atualiza/{idDescarte}")
 	@ResponseStatus(value = HttpStatus.OK)
 	ResponseEntity<?> atualizaDescarte(@PathVariable Long idDescarte,

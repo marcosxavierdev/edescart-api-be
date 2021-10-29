@@ -3,6 +3,7 @@ package dev.edescart.descarte.application.api.form;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import dev.edescart.descarte.application.service.DescarteService;
 import dev.edescart.descarte.domain.Descarte;
 import dev.edescart.descarte.domain.enums.SituacaoDoItem;
 import dev.edescart.descarte.domain.enums.TipoDoItem;
@@ -24,7 +25,7 @@ public class AtualizaDescarteFORM {
 	private String cliente;
 	private String autorizacaoEmpresa;
 	private String tecnicoResponsavel;
-	private String dataEntrada = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+	private String dataEntrada;
 	private int descartarEm;
 	private String motivoDescarte;
 	private String origemObservacao;
