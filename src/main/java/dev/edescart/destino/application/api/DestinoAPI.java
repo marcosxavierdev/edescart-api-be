@@ -33,5 +33,9 @@ public interface DestinoAPI {
 	@GetMapping("/buscaDestino")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDestinoDTO> buscaDestinoPorNome(@RequestParam String destino);
+	
+	@GetMapping("/buscaDataSaida")
+	@ResponseStatus(value = HttpStatus.OK)
+	List<BuscaDestinoDTO> buscaDataSaida(@RequestParam String data);
 
 }

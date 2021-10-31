@@ -47,4 +47,12 @@ public class DestinoJpaRepository implements DestinoRepository {
 		return destinos;
 	}
 
+	@Override
+	public List<Destino> buscaDataSaidaInfra(String data) {
+		log.info("[Iniciando] - Método buscaDataSaidaInfra em DestinoJpaRepository");
+		List<Destino> destinos = destinoSpringDataJpaRepository.findByDataSaida(data);
+		log.info("[Finalizando] - Método buscaDataSaidaInfra em DestinoJpaRepository");
+		return destinos;
+	}
+
 }

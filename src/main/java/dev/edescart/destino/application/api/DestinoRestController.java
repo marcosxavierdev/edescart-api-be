@@ -48,4 +48,12 @@ public class DestinoRestController implements DestinoAPI {
 		return BuscaDestinoDTO.toList(destinos);
 	}
 
+	@Override
+	public List<BuscaDestinoDTO> buscaDataSaida(String data) {
+		log.info("[Iniciando] - Método buscaDataSaida em DestinoRestController");
+		List<Destino> destinos = destinoService.buscaDataSaidaService(data);
+		log.info("[Finalizando] - Método buscaDataSaida em DestinoRestController");
+		return BuscaDestinoDTO.toList(destinos);
+	}
+
 }

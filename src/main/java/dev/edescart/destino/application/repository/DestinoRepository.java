@@ -19,4 +19,6 @@ public interface DestinoRepository {
 
 	List<Destino> buscaDestinoPorNomeInfra(String destino);
 
+	List<Destino> buscaDataSaidaInfra(String data);
+
 }

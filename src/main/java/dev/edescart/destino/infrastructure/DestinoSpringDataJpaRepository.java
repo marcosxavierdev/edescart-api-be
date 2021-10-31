@@ -12,4 +12,6 @@ public interface DestinoSpringDataJpaRepository extends JpaRepository<Destino, L
 
 	List<Destino> findByDestinoContainingIgnoreCase(String destino);
 
+	List<Destino> findByDataSaida(String data);
+
 }

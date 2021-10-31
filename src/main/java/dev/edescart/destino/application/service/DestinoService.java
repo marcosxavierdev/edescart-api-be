@@ -17,4 +17,6 @@ public interface DestinoService {
 
 	List<Destino> buscaDestinoPorNomeService(String destino);
 
+	List<Destino> buscaDataSaidaService(String data);
+
 }
