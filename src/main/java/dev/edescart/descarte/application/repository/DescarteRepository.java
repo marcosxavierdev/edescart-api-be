@@ -28,6 +28,5 @@ public interface DescarteRepository {
 
 	List<Descarte> buscaDataEntradaInfra(String data);
 
-	Descarte buscaPorId(Long idDescarte);
 
 }

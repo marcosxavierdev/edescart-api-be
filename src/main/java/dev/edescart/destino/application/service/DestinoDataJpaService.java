@@ -20,13 +20,18 @@ public class DestinoDataJpaService implements DestinoService {
 
 	@Override
 	public void criaDestinoService(Long idDescarte, Destino buildDestino) {
+		log.info("[Iniciando] - Método criaDestinoService em DestinoDataJpaService");
 		Descarte descartePorId = this.buscaPorId(idDescarte);
 		buildDestino.setDescarte(descartePorId);
 		destinoRepository.criaDestinoInfra(buildDestino);
+		log.info("[Finalizando] - Método criaDestinoService em DestinoDataJpaService");
 	}
 
 	private Descarte buscaPorId(Long idDescarte) {
-		Descarte descartePorId = descarteRepository.buscaPorId(idDescarte);
+		log.info("[Iniciando] - Método buscaPorId em DestinoDataJpaService");
+		Descarte descartePorId = descarteRepository.buscaDescartePorIdInfra(idDescarte)
+				.orElseThrow(() -> ApiException.throwApiException(HttpStatus.BAD_REQUEST, "Descarte não encontrado!"));
+		log.info("[Finalizando] - Método buscaPorId em DestinoDataJpaService");
 		return descartePorId;
 	}
 

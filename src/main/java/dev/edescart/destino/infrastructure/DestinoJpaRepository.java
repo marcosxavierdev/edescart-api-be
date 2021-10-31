@@ -15,8 +15,10 @@ public class DestinoJpaRepository implements DestinoRepository {
 
 	@Override
 	public Destino criaDestinoInfra(Destino buildDestino) {
-		return  destinoSpringDataJpaRepository.save(buildDestino);
-		
+		log.info("[Iniciando] - Método criaDestinoInfra em DestinoJpaService");
+		Destino destino = destinoSpringDataJpaRepository.save(buildDestino);
+		log.info("[Finalizando] - Método criaDestinoInfra em DestinoJpaService");
+		return  destino;
 	}
 
 }

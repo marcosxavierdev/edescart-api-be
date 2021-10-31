@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import dev.edescart.descarte.application.api.dto.CadastraDescarteDTO;
-import dev.edescart.descarte.application.api.dto.ResultadoBuscaDescarteDTO;
+import dev.edescart.descarte.application.api.dto.BuscaDescarteDTO;
 import dev.edescart.descarte.application.api.form.AtualizaDescarteFORM;
 import dev.edescart.descarte.application.api.form.CadastraDescarteFORM;
 
@@ -32,7 +32,7 @@ public interface DescarteAPI {
 
 	@GetMapping("/buscaPorId/{idDescarte}")
 	@ResponseStatus(value = HttpStatus.OK)
-	ResultadoBuscaDescarteDTO buscaDescartePorId(@PathVariable Long idDescarte);
+	BuscaDescarteDTO buscaDescartePorId(@PathVariable Long idDescarte);
 
 	@PostMapping("/cadastra")
 	@ResponseStatus(value = HttpStatus.CREATED)
@@ -52,18 +52,18 @@ public interface DescarteAPI {
 
 	@GetMapping("/listaDescartes")
 	@ResponseStatus(value = HttpStatus.OK)
-	List<ResultadoBuscaDescarteDTO> listaDescartes();
+	List<BuscaDescarteDTO> listaDescartes();
 
 	@GetMapping("/buscaCliente")
 	@ResponseStatus(value = HttpStatus.OK)
-	List<ResultadoBuscaDescarteDTO> buscaClientePorNome(@RequestParam String nome);
+	List<BuscaDescarteDTO> buscaClientePorNome(@RequestParam String nome);
 
 	@GetMapping("/buscaTecnico")
 	@ResponseStatus(value = HttpStatus.OK)
-	List<ResultadoBuscaDescarteDTO> buscaTecnicoPorNome(@RequestParam String nome);
+	List<BuscaDescarteDTO> buscaTecnicoPorNome(@RequestParam String nome);
 
 	@GetMapping("/buscaDataEntrada")
 	@ResponseStatus(value = HttpStatus.OK)
-	List<ResultadoBuscaDescarteDTO> buscaDataEntrada(@RequestParam String data);
+	List<BuscaDescarteDTO> buscaDataEntrada(@RequestParam String data);
 
 }
