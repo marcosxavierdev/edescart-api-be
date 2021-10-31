@@ -52,4 +52,12 @@ public class DestinoDataJpaService implements DestinoService {
 		return destinoRepository.listaDestinosInfra();
 	}
 
+	@Override
+	public List<Destino> buscaDestinoPorNomeService(String destino) {
+		log.info("[Iniciando] - Método buscaDestinoPorNomeService em DestinoDataJpaService");
+		List<Destino> destinos = this.destinoRepository.buscaDestinoPorNomeInfra(destino);
+		log.info("[Finalizando] - Método buscaDestinoPorNomeService em DestinoDataJpaService");
+		return destinos;
+	}
+
 }

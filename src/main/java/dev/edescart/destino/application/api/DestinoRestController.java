@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import dev.edescart.descarte.application.api.dto.BuscaDescarteDTO;
-import dev.edescart.descarte.domain.Descarte;
 import dev.edescart.destino.application.service.DestinoService;
 import dev.edescart.destino.domain.Destino;
 import lombok.AllArgsConstructor;
@@ -40,6 +38,14 @@ public class DestinoRestController implements DestinoAPI {
 		List<Destino> destino = destinoService.listaDestinosService();
 		log.info("[Finalizando] - Método listaDestinos em DestinoRestController");
 		return BuscaDestinoDTO.toList(destino);
+	}
+
+	@Override
+	public List<BuscaDestinoDTO> buscaDestinoPorNome(String destino) {
+		log.info("[Iniciando] - Método buscaDestinoPorNomes em DestinoRestController");
+		List<Destino> destinos = destinoService.buscaDestinoPorNomeService(destino);
+		log.info("[Finalizando] - Método buscaDestinoPorNome em DestinoRestController");
+		return BuscaDestinoDTO.toList(destinos);
 	}
 
 }

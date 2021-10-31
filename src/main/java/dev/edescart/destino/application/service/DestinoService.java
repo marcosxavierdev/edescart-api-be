@@ -15,4 +15,6 @@ public interface DestinoService {
 
 	List<Destino> listaDestinosService();
 
+	List<Destino> buscaDestinoPorNomeService(String destino);
+
 }

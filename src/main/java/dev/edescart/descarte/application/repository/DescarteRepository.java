@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 import dev.edescart.descarte.domain.Descarte;
+import dev.edescart.destino.domain.Destino;
 
 @Repository
 public interface DescarteRepository {
