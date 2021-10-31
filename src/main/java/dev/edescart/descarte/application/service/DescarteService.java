@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import dev.edescart.descarte.domain.Descarte;
+import dev.edescart.destino.domain.Destino;
 
 @Service
 public interface DescarteService {

@@ -85,4 +85,10 @@ public class DescarteJpaRepository implements DescarteRepository {
 		return descartes;
 	}
 
+	@Override
+	public Descarte buscaPorId(Long idDescarte) {
+		Descarte descarte = descarteSpringDataJpaRepository.getOne(idDescarte);
+		return descarte;
+	}
+
 }

@@ -28,11 +28,15 @@ public class Destino {
 	private String autorizacaoDestino;
 	private String contatoDestino;
 	private String dataSaida;
-	private String ObservacaoDestino;
+	private String observacaoDestino;
 
 	private DescarteAntecipado descarteAntecipado;
 
 	@OneToOne
 	private Descarte descarte;
+
+	public void setDescarte(Descarte descarte) {
+		this.descarte = descarte;
+	}
 
 }

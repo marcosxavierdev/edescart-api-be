@@ -14,13 +14,13 @@ public class CriaDestinoFORM {
 	private String autorizacaoDestino;
 	private String contatoDestino;
 	private String dataSaida = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-	private String ObservacaoDestino;
+	private String observacaoDestino;
 
-	private DescarteAntecipado descarteAntecipado;
+	private DescarteAntecipado descarteAntecipado = DescarteAntecipado.NAO;
 
 	public Destino buildDestino() {
-		return Destino.builder().autorizacaoDestino(this.autorizacaoDestino).contatoDestino(this.contatoDestino)
-				.dataSaida(this.dataSaida).ObservacaoDestino(this.ObservacaoDestino)
+		return Destino.builder().destino(destino).autorizacaoDestino(this.autorizacaoDestino).contatoDestino(this.contatoDestino)
+				.dataSaida(this.dataSaida).observacaoDestino(this.observacaoDestino)
 				.descarteAntecipado(this.descarteAntecipado).build();
 	}
 
