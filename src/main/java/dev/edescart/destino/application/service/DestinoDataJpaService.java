@@ -1,5 +1,7 @@
 package dev.edescart.destino.application.service;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +44,12 @@ public class DestinoDataJpaService implements DestinoService {
 				.orElseThrow(() -> ApiException.throwApiException(HttpStatus.NOT_FOUND, "Destino não encontrado!"));
 		log.info("[Finalizando] - Método buscaDestinoPorIdService em DestinoDataJpaService");
 		return destino;
+	}
+
+	@Override
+	public List<Destino> listaDestinosService() {
+		log.info("[Iniciando - Finalizando] - Método listaDestinosService em DestinoDataJpaService");
+		return destinoRepository.listaDestinosInfra();
 	}
 
 }

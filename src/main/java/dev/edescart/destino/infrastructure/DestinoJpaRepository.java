@@ -1,5 +1,6 @@
 package dev.edescart.destino.infrastructure;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Component;
@@ -30,6 +31,12 @@ public class DestinoJpaRepository implements DestinoRepository {
 		Optional<Destino> destino = destinoSpringDataJpaRepository.findById(idDestino);
 		log.info("[Finalizando] - Método buscaDestinoPorIdInfra em DestinoJpaService");
 		return destino;
+	}
+
+	@Override
+	public List<Destino> listaDestinosInfra() {
+		log.info("[Iniciando - Finalizando] - Método listaDestinosInfra em DestinoJpaService");
+		return destinoSpringDataJpaRepository.findAll();
 	}
 
 }
