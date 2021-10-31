@@ -23,4 +23,6 @@ public interface DestinoService {
 
 	void deletaDestinoService(Long idDestino);
 
+	Destino atualizaDestinoService(Destino buildDestino);
+
 }

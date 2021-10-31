@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import dev.edescart.descarte.domain.Descarte;
 import dev.edescart.destino.application.repository.DestinoRepository;
 import dev.edescart.destino.domain.Destino;
 import lombok.AllArgsConstructor;
@@ -68,6 +67,14 @@ public class DestinoJpaRepository implements DestinoRepository {
 		log.info("[Iniciando] - Método deletaDestinoInfra em DestinoJpaRepository");
 		destinoSpringDataJpaRepository.deleteById(idDestino);
 		log.info("[Finalizando] - Método deletaDestinoInfra em DestinoJpaRepository");
+	}
+
+	@Override
+	public Destino atualizaDestinoInfra(Destino buildDestino) {
+		log.info("[Iniciando] - Método atualizaDestinoInfra em DestinoJpaRepository");
+		Destino novoDestino = destinoSpringDataJpaRepository.save(buildDestino);
+		log.info("[Finalizando] - Método atualizaDestinoInfra em DestinoJpaRepository");
+		return novoDestino;
 	}
 
 }

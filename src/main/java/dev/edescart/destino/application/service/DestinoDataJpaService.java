@@ -82,4 +82,12 @@ public class DestinoDataJpaService implements DestinoService {
 		destinoRepository.deletaDestinoInfra(idDestino);
 	}
 
+	@Override
+	public Destino atualizaDestinoService(Destino buildDestino) {
+		log.info("[Iniciando] - Método verificaIdDestinoService em DestinoDataJpaService");
+		Destino novoDestino = destinoRepository.atualizaDestinoInfra(buildDestino);
+		log.info("[Finalizando] - Método verificaIdDestinoService em DestinoDataJpaService");
+		return novoDestino;
+	}
+
 }

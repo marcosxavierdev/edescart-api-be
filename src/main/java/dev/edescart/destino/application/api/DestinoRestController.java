@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.edescart.descarte.domain.Descarte;
 import dev.edescart.destino.application.api.dto.BuscaDestinoDTO;
+import dev.edescart.destino.application.api.form.AtualizaDestinoFORM;
 import dev.edescart.destino.application.api.form.CriaDestinoFORM;
 import dev.edescart.destino.application.service.DestinoService;
 import dev.edescart.destino.domain.Destino;
@@ -69,6 +71,19 @@ public class DestinoRestController implements DestinoAPI {
 		destinoService.deletaDestinoService(idDestino);
 		log.info("[Finalizando] - Método deletaDestino em DestinoRestController [OK]");
 		return ResponseEntity.noContent().build();
+	}
+
+	@Override
+	public ResponseEntity<?> atualizaDestino(Long idDestino, AtualizaDestinoFORM atualizaDestinoFORM) {
+		log.info("[Iniciando] - Método atualizaDestino em DestinoRestController");
+		if (!destinoService.verificaIdDestinoService(idDestino)) {
+			log.info("[Finalizando] - Método atualizaDestino em DestinoRestController [NOT FOUND]");
+			return ResponseEntity.notFound().build();
+		}
+		atualizaDestinoFORM.setId(idDestino);
+		Destino destino = destinoService.atualizaDestinoService(atualizaDestinoFORM.buildDestino());
+		log.info("[Finalizando] - Método atualizaDestino em DestinoRestController [OK]");
+		return ResponseEntity.ok(destino);
 	}
 
 }

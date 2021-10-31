@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +18,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.edescart.descarte.application.api.dto.BuscaDescarteDTO;
+import dev.edescart.descarte.application.api.form.AtualizaDescarteFORM;
 import dev.edescart.destino.application.api.dto.BuscaDestinoDTO;
+import dev.edescart.destino.application.api.form.AtualizaDestinoFORM;
 import dev.edescart.destino.application.api.form.CriaDestinoFORM;
 
 @RestController
@@ -48,5 +51,11 @@ public interface DestinoAPI {
 	@DeleteMapping("/destino/deleta/{idDestino}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	ResponseEntity<Void> deletaDestino(@PathVariable Long idDestino);
+	
+	@Transactional
+	@PutMapping("/destino/atualiza/{idDestino}")
+	@ResponseStatus(value = HttpStatus.OK)
+	ResponseEntity<?> atualizaDestino(@PathVariable Long idDestino,
+			@RequestBody AtualizaDestinoFORM atualizaDestinoFORM);
 
 }

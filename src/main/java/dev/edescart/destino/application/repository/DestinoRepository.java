@@ -25,4 +25,6 @@ public interface DestinoRepository {
 
 	void deletaDestinoInfra(Long idDestino);
 
+	Destino atualizaDestinoInfra(Destino buildDestino);
+
 }
