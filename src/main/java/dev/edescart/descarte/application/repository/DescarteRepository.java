@@ -28,5 +28,4 @@ public interface DescarteRepository {
 
 	List<Descarte> buscaDataEntradaInfra(String data);
 
-
 }

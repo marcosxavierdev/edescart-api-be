@@ -9,4 +9,6 @@ public interface DestinoService {
 
 	void criaDestinoService(Long idDescarte, Destino buildDestino);
 
+	Destino buscaDestinoPorIdService(Long idDestino);
+
 }

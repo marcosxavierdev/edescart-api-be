@@ -35,4 +35,13 @@ public class DestinoDataJpaService implements DestinoService {
 		return descartePorId;
 	}
 
+	@Override
+	public Destino buscaDestinoPorIdService(Long idDestino) {
+		log.info("[Iniciando] - Método buscaDestinoPorIdService em DestinoDataJpaService");
+		Destino destino = destinoRepository.buscaDestinoPorIdInfra(idDestino)
+				.orElseThrow(() -> ApiException.throwApiException(HttpStatus.NOT_FOUND, "Destino não encontrado!"));
+		log.info("[Finalizando] - Método buscaDestinoPorIdService em DestinoDataJpaService");
+		return destino;
+	}
+
 }

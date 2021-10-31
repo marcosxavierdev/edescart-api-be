@@ -1,6 +1,7 @@
 package dev.edescart.destino.application.api;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,5 +16,9 @@ public interface DestinoAPI {
 	@PostMapping("/{idDescarte}/criaDestino")
 	@ResponseStatus(value = HttpStatus.CREATED)
 	void criaDestino(@PathVariable Long idDescarte, @RequestBody CriaDestinoFORM criaDestinoFORM);
+
+	@GetMapping("/destino/{idDestino}")
+	@ResponseStatus(value = HttpStatus.OK)
+	BuscaDestinoDTO buscaDestinoPorId(@PathVariable Long idDestino);
 
 }
