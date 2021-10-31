@@ -1,4 +1,4 @@
-package dev.edescart.destino.application.api;
+package dev.edescart.destino.application.api.form;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

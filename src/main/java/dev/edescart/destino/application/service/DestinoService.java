@@ -19,4 +19,8 @@ public interface DestinoService {
 
 	List<Destino> buscaDataSaidaService(String data);
 
+	boolean verificaIdDestinoService(Long idDestino);
+
+	void deletaDestinoService(Long idDestino);
+
 }

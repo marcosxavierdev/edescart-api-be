@@ -68,4 +68,18 @@ public class DestinoDataJpaService implements DestinoService {
 		return destinos;
 	}
 
+	@Override
+	public boolean verificaIdDestinoService(Long idDestino) {
+		log.info("[Iniciando] - Método verificaIdDestinoService em DestinoDataJpaService");
+		boolean statusDestino = destinoRepository.verificaIdDestinoInfra(idDestino);
+		log.info("[Finalizando] - Método verificaIdDestinoService em DestinoDataJpaService");
+		return statusDestino;
+	}
+
+	@Override
+	public void deletaDestinoService(Long idDestino) {
+		log.info("[Iniciando - Finalizando] - Método deletaDestinoService em DestinoDataJpaService");
+		destinoRepository.deletaDestinoInfra(idDestino);
+	}
+
 }

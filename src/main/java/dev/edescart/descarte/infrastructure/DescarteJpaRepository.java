@@ -33,7 +33,7 @@ public class DescarteJpaRepository implements DescarteRepository {
 	}
 
 	@Override
-	public boolean verificaIdInfra(Long idDescarte) {
+	public boolean verificaIdDescarteInfra(Long idDescarte) {
 		log.info("[Iniciando] - Método verificaIdInfra em DescarteJpaRepository");
 		boolean statusEquipamento = descarteSpringDataJpaRepository.existsById(idDescarte);
 		log.info("[Finalizando] - Método verificaIdInfra em DescarteJpaRepository");

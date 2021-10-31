@@ -1,4 +1,4 @@
-package dev.edescart.destino.application.api;
+package dev.edescart.destino.application.api.dto;
 
 import java.util.List;
 import java.util.stream.Collectors;

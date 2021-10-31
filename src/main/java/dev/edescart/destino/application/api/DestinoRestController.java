@@ -2,8 +2,11 @@ package dev.edescart.destino.application.api;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.edescart.destino.application.api.dto.BuscaDestinoDTO;
+import dev.edescart.destino.application.api.form.CriaDestinoFORM;
 import dev.edescart.destino.application.service.DestinoService;
 import dev.edescart.destino.domain.Destino;
 import lombok.AllArgsConstructor;
@@ -54,6 +57,18 @@ public class DestinoRestController implements DestinoAPI {
 		List<Destino> destinos = destinoService.buscaDataSaidaService(data);
 		log.info("[Finalizando] - Método buscaDataSaida em DestinoRestController");
 		return BuscaDestinoDTO.toList(destinos);
+	}
+
+	@Override
+	public ResponseEntity<Void> deletaDestino(Long idDestino) {
+		log.info("[Iniciando] - Método deletaDestino em DestinoRestController");
+		if (!destinoService.verificaIdDestinoService(idDestino)) {
+			log.info("[Finalizando] - Método deletaDestino em DestinoRestController [NOT FOUND]");
+			return ResponseEntity.notFound().build();
+		}
+		destinoService.deletaDestinoService(idDestino);
+		log.info("[Finalizando] - Método deletaDestino em DestinoRestController [OK]");
+		return ResponseEntity.noContent().build();
 	}
 
 }

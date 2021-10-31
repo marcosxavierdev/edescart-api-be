@@ -55,4 +55,19 @@ public class DestinoJpaRepository implements DestinoRepository {
 		return destinos;
 	}
 
+	@Override
+	public boolean verificaIdDestinoInfra(Long idDestino) {
+		log.info("[Iniciando] - Método verificaIdDestinoInfra em DestinoJpaRepository");
+		boolean statusDestino = destinoSpringDataJpaRepository.existsById(idDestino);
+		log.info("[Finalizando] - Método verificaIdDestinoInfra em DestinoJpaRepository");
+		return statusDestino;
+	}
+
+	@Override
+	public void deletaDestinoInfra(Long idDestino) {
+		log.info("[Iniciando] - Método deletaDestinoInfra em DestinoJpaRepository");
+		destinoSpringDataJpaRepository.deleteById(idDestino);
+		log.info("[Finalizando] - Método deletaDestinoInfra em DestinoJpaRepository");
+	}
+
 }

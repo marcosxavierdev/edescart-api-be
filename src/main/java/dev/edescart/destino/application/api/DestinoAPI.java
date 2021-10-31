@@ -2,7 +2,11 @@ package dev.edescart.destino.application.api;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.edescart.descarte.application.api.dto.BuscaDescarteDTO;
+import dev.edescart.destino.application.api.dto.BuscaDestinoDTO;
+import dev.edescart.destino.application.api.form.CriaDestinoFORM;
 
 @RestController
 @RequestMapping("/api/v1/descarte")
@@ -37,5 +43,10 @@ public interface DestinoAPI {
 	@GetMapping("/buscaDataSaida")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDestinoDTO> buscaDataSaida(@RequestParam String data);
+	
+	@Transactional
+	@DeleteMapping("/destino/deleta/{idDestino}")
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	ResponseEntity<Void> deletaDestino(@PathVariable Long idDestino);
 
 }

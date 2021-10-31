@@ -35,9 +35,9 @@ public class DescarteDataJpaService implements DescarteService {
 	}
 
 	@Override
-	public boolean verificaIdService(Long idDescarte) {
+	public boolean verificaIdDescarteService(Long idDescarte) {
 		log.info("[Iniciando] - Método verificaIdService em DescarteDataJpaService");
-		boolean statusEquipamento = descarteRepository.verificaIdInfra(idDescarte);
+		boolean statusEquipamento = descarteRepository.verificaIdDescarteInfra(idDescarte);
 		log.info("[Finalizando] - Método verificaIdService em DescarteDataJpaService");
 		return statusEquipamento;
 	}

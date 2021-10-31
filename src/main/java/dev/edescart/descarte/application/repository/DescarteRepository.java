@@ -15,7 +15,7 @@ public interface DescarteRepository {
 
 	Descarte cadastraDescarteInfra(Descarte descarte);
 
-	boolean verificaIdInfra(Long idDescarte);
+	boolean verificaIdDescarteInfra(Long idDescarte);
 
 	void deletaDescarteInfra(Long idDescarte);
 

@@ -14,7 +14,7 @@ public interface DescarteService {
 
 	Descarte cadastraDescarteService(Descarte descarte);
 
-	boolean verificaIdService(Long idDescarte);
+	boolean verificaIdDescarteService(Long idDescarte);
 
 	void deletaDescarteService(Long idDescarte);
 

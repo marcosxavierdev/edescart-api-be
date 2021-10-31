@@ -50,7 +50,7 @@ public class DescarteRestController implements DescarteAPI {
 	@Override
 	public ResponseEntity<Void> deletaDescarte(Long idDescarte) {
 		log.info("[Iniciando] - Método deletaDescarte em DescarteRestController");
-		if (!descarteService.verificaIdService(idDescarte)) {
+		if (!descarteService.verificaIdDescarteService(idDescarte)) {
 			log.info("[Finalizando] - Método deletaDescarte em DescarteRestController [NOT FOUND]");
 			return ResponseEntity.notFound().build();
 		}
@@ -62,7 +62,7 @@ public class DescarteRestController implements DescarteAPI {
 	@Override
 	public ResponseEntity<?> atualizaDescarte(Long idDescarte, AtualizaDescarteFORM atualizaDescarteFORM) {
 		log.info("[Iniciando] - Método atualizaDescarte em DescarteRestController");
-		if (!descarteService.verificaIdService(idDescarte)) {
+		if (!descarteService.verificaIdDescarteService(idDescarte)) {
 			log.info("[Finalizando] - Método atualizaDescarte em DescarteRestController [NOT FOUND]");
 			return ResponseEntity.notFound().build();
 		}

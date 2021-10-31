@@ -21,4 +21,8 @@ public interface DestinoRepository {
 
 	List<Destino> buscaDataSaidaInfra(String data);
 
+	boolean verificaIdDestinoInfra(Long idDestino);
+
+	void deletaDestinoInfra(Long idDestino);
+
 }
