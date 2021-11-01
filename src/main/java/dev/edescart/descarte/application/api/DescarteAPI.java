@@ -18,10 +18,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import dev.edescart.descarte.application.api.dto.CadastraDescarteDTO;
 import dev.edescart.descarte.application.api.dto.BuscaDescarteDTO;
+import dev.edescart.descarte.application.api.dto.CadastraDescarteDTO;
+import dev.edescart.descarte.application.api.dto.DetalhaDescarteFinalDTO;
 import dev.edescart.descarte.application.api.form.AtualizaDescarteFORM;
 import dev.edescart.descarte.application.api.form.CadastraDescarteFORM;
+import dev.edescart.descarte.domain.Descarte;
 
 @RestController
 @RequestMapping("/api/v1/descarte")
@@ -47,7 +49,7 @@ public interface DescarteAPI {
 	@Transactional
 	@PutMapping("/atualiza/{idDescarte}")
 	@ResponseStatus(value = HttpStatus.OK)
-	ResponseEntity<?> atualizaDescarte(@PathVariable Long idDescarte,
+	ResponseEntity<Descarte> atualizaDescarte(@PathVariable Long idDescarte,
 			@RequestBody AtualizaDescarteFORM atualizaDescarteFORM);
 
 	@GetMapping("/listaDescartes")
@@ -66,4 +68,7 @@ public interface DescarteAPI {
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDescarteDTO> buscaDataEntrada(@RequestParam String data);
 
+	@GetMapping("/detalhaDescarte/{idDescarte}")
+	@ResponseStatus(value = HttpStatus.OK)
+	DetalhaDescarteFinalDTO detalhaDescarte (@PathVariable Long idDescarte);
 }

@@ -90,4 +90,11 @@ public class DestinoDataJpaService implements DestinoService {
 		return novoDestino;
 	}
 
+	@Override
+	public Destino buscaDestinoPorFK(Long idDestino) {
+		Destino destinoPorFK = destinoRepository.buscaDestinoPorFKInfra(idDestino)
+				.orElseThrow(() -> ApiException.throwApiException(HttpStatus.BAD_REQUEST, "Destino não encontrado!"));
+		return destinoPorFK;	
+	}
+	
 }

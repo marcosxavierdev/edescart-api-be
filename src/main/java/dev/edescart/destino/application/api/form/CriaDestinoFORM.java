@@ -10,6 +10,7 @@ import lombok.Value;
 @Value
 public class CriaDestinoFORM {
 
+	private long id;
 	private String destino;
 	private String autorizacaoDestino;
 	private String contatoDestino;
@@ -19,7 +20,7 @@ public class CriaDestinoFORM {
 	private DescarteAntecipado descarteAntecipado = DescarteAntecipado.NAO;
 
 	public Destino buildDestino() {
-		return Destino.builder().destino(destino).autorizacaoDestino(this.autorizacaoDestino)
+		return Destino.builder().id(this.id).destino(destino).autorizacaoDestino(this.autorizacaoDestino)
 				.contatoDestino(this.contatoDestino).dataSaida(this.dataSaida).observacaoDestino(this.observacaoDestino)
 				.descarteAntecipado(this.descarteAntecipado).build();
 	}

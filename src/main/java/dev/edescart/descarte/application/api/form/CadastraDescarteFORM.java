@@ -31,7 +31,7 @@ public class CadastraDescarteFORM {
 	private TipoDoItem tipoDoItem;
 
 	public Descarte buildDescarte() {
-		return Descarte.builder().nome(this.nome).modelo(this.modelo).marca(this.marca).unidade(this.unidade)
+		return Descarte.builder().id(this.id).nome(this.nome).modelo(this.modelo).marca(this.marca).unidade(this.unidade)
 				.quantidade(this.quantidade).observacao(this.observacao).cliente(this.cliente)
 				.autorizacaoEmpresa(this.autorizacaoEmpresa).tecnicoResponsavel(this.tecnicoResponsavel)
 				.dataEntrada(this.dataEntrada).descartarEm(this.descartarEm).motivoDescarte(this.motivoDescarte)

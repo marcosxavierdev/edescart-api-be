@@ -25,4 +25,6 @@ public interface DestinoService {
 
 	Destino atualizaDestinoService(Destino buildDestino);
 
+	Destino buscaDestinoPorFK(Long idDescarte);
+
 }
