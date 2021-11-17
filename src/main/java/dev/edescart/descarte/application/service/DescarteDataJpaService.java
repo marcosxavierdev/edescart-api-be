@@ -18,48 +18,48 @@ public class DescarteDataJpaService implements DescarteService {
 	private DescarteRepository descarteRepository;
 
 	@Override
-	public Descarte buscaEquipamentoPorIdService(Long idEquipamento) {
-		log.info("[Iniciando] - Método buscaEquipamentoPorIdService em DescarteDataJpaService");
-		Descarte descarte = descarteRepository.buscaEquipamentoPorIdInfra(idEquipamento)
+	public Descarte buscaDescartePorIdService(Long idDescarte) {
+		log.info("[Iniciando] - Método buscaDescartePorIdService em DescarteDataJpaService");
+		Descarte descarte = descarteRepository.buscaDescartePorIdInfra(idDescarte)
 				.orElseThrow(() -> ApiException.throwApiException(HttpStatus.NOT_FOUND, "Equipamento não encontrado!"));
-		log.info("[Finalizando] - Método buscaEquipamentoPorIdService em DescarteDataJpaService");
+		log.info("[Finalizando] - Método buscaDescartePorIdService em DescarteDataJpaService");
 		return descarte;
 	}
 
 	@Override
-	public Descarte cadastraEquipamentoService(Descarte descarte) {
-		log.info("[Iniciando] - Método cadastraEquipamentoService em DescarteDataJpaService");
-		Descarte novoEquipamento = descarteRepository.cadastraEquipamentoInfra(descarte);
-		log.info("[Finalizando] - Método cadastraEquipamentoService em DescarteDataJpaService");
+	public Descarte cadastraDescarteService(Descarte descarte) {
+		log.info("[Iniciando] - Método cadastraDescarteService em DescarteDataJpaService");
+		Descarte novoEquipamento = descarteRepository.cadastraDescarteInfra(descarte);
+		log.info("[Finalizando] - Método cadastraDescarteService em DescarteDataJpaService");
 		return novoEquipamento;
 	}
 
 	@Override
-	public boolean verificaIdService(Long idEquipamento) {
+	public boolean verificaIdDescarteService(Long idDescarte) {
 		log.info("[Iniciando] - Método verificaIdService em DescarteDataJpaService");
-		boolean statusEquipamento = descarteRepository.verificaIdInfra(idEquipamento);
+		boolean statusEquipamento = descarteRepository.verificaIdDescarteInfra(idDescarte);
 		log.info("[Finalizando] - Método verificaIdService em DescarteDataJpaService");
 		return statusEquipamento;
 	}
 
 	@Override
-	public void deletaEquipamentoService(Long idEquipamento) {
-		log.info("[Iniciando] - Método deletaEquipamentoService em DescarteDataJpaService");
-		descarteRepository.deletaEquipamentoInfra(idEquipamento);
-		log.info("[Finalizando] - Método deletaEquipamentoService em DescarteDataJpaService");
+	public void deletaDescarteService(Long idDescarte) {
+		log.info("[Iniciando] - Método deletaDescarteService em DescarteDataJpaService");
+		descarteRepository.deletaDescarteInfra(idDescarte);
+		log.info("[Finalizando] - Método deletaDescarteService em DescarteDataJpaService");
 	}
 
 	@Override
-	public Descarte atualizaEquipamentoService(Descarte descarte) {
-		log.info("[Iniciando] - Método atualizaEquipamentoService em DescarteDataJpaService");
-		Descarte novoEquipamento = descarteRepository.atualizaEquipamentoInfra(descarte);
-		log.info("[Finalizando] - Método atualizaEquipamentoService em DescarteDataJpaService");
+	public Descarte atualizaDescarteService(Descarte descarte) {
+		log.info("[Iniciando] - Método tualizaDescarteService em DescarteDataJpaService");
+		Descarte novoEquipamento = descarteRepository.atualizaDescarteInfra(descarte);
+		log.info("[Finalizando] - Método atualizaDescarteService em DescarteDataJpaService");
 		return novoEquipamento;
 	}
 
 	@Override
-	public List<Descarte> listaEquipamentosService() {
-		log.info("[Iniciando - Finalizando] - Método listaEquipamentosService em DescarteDataJpaService");
+	public List<Descarte> listaDescartesService() {
+		log.info("[Iniciando - Finalizando] - Método listaDescartesService em DescarteDataJpaService");
 		return descarteRepository.listaEquipamentosInfra();
 	}
 
@@ -68,6 +68,22 @@ public class DescarteDataJpaService implements DescarteService {
 		log.info("[Iniciando] - Método buscaClientePorNomeService em DescarteDataJpaService");
 		List<Descarte> descartes = this.descarteRepository.buscaClientePorNomeInfra(nome);
 		log.info("[Finalizando] - Método buscaClientePorNomeService em DescarteDataJpaService");
+		return descartes;
+	}
+
+	@Override
+	public List<Descarte> buscaTecnicoPorNomeService(String nome) {
+		log.info("[Iniciando] - Método buscaTecnicoPorNomeService em DescarteDataJpaService");
+		List<Descarte> descartes = this.descarteRepository.buscaTecnicoPorNomeInfra(nome);
+		log.info("[Finalizando] - Método buscaTecnicoPorNomeService em DescarteDataJpaService");
+		return descartes;
+	}
+
+	@Override
+	public List<Descarte> buscaDataEntradaService(String data) {
+		log.info("[Iniciando] - Método buscaDataEntradaService em DescarteDataJpaService");
+		List<Descarte> descartes = this.descarteRepository.buscaDataEntradaInfra(data);
+		log.info("[Finalizando] - Método buscaDataEntradaService em DescarteDataJpaService");
 		return descartes;
 	}
 

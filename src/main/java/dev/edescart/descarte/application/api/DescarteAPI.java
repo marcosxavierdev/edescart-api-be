@@ -2,6 +2,8 @@ package dev.edescart.descarte.application.api;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,9 +20,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import dev.edescart.descarte.application.api.dto.BuscaDescarteDTO;
 import dev.edescart.descarte.application.api.dto.CadastraDescarteDTO;
-import dev.edescart.descarte.application.api.dto.ListaDescartesDTO;
+import dev.edescart.descarte.application.api.dto.DetalhaDescarteFinalDTO;
 import dev.edescart.descarte.application.api.form.AtualizaDescarteFORM;
 import dev.edescart.descarte.application.api.form.CadastraDescarteFORM;
+import dev.edescart.descarte.domain.Descarte;
 
 @RestController
 @RequestMapping("/api/v1/descarte")
@@ -29,29 +32,43 @@ public interface DescarteAPI {
 	@GetMapping("/test")
 	String test();
 
-	@GetMapping("/buscaEquipamento/{idEquipamento}")
+	@GetMapping("/buscaPorId/{idDescarte}")
 	@ResponseStatus(value = HttpStatus.OK)
-	BuscaDescarteDTO buscaEquipamentoPorId(@PathVariable Long idEquipamento);
+	BuscaDescarteDTO buscaDescartePorId(@PathVariable Long idDescarte);
 
-	@PostMapping("/cadastraEquipamento")
+	@PostMapping("/cadastra")
 	@ResponseStatus(value = HttpStatus.CREATED)
-	ResponseEntity<CadastraDescarteDTO> cadastraEquipamento(@RequestBody CadastraDescarteFORM cadastraDescarteFORM,
+	ResponseEntity<CadastraDescarteDTO> cadastraDescarte(@RequestBody CadastraDescarteFORM cadastraDescarteFORM,
 			UriComponentsBuilder uriBuilder);
 
-	@DeleteMapping("/deletaEquipamento/{idEquipamento}")
-	ResponseEntity<Void> deletaEquipamento(@PathVariable Long idEquipamento);
+	@Transactional
+	@DeleteMapping("/deleta/{idDescarte}")
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	ResponseEntity<Void> deletaDescarte(@PathVariable Long idDescarte);
 
-	@PutMapping("/atualizaEquipamento/{idEquipamento}")
+	@Transactional
+	@PutMapping("/atualiza/{idDescarte}")
 	@ResponseStatus(value = HttpStatus.OK)
-	ResponseEntity<?> atualizaEquipamento(@PathVariable Long idEquipamento,
+	ResponseEntity<Descarte> atualizaDescarte(@PathVariable Long idDescarte,
 			@RequestBody AtualizaDescarteFORM atualizaDescarteFORM);
 
-	@GetMapping("/listaEquipamentos")
+	@GetMapping("/listaDescartes")
 	@ResponseStatus(value = HttpStatus.OK)
-	List<ListaDescartesDTO> listaEquipamentos();
+	List<BuscaDescarteDTO> listaDescartes();
 
 	@GetMapping("/buscaCliente")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDescarteDTO> buscaClientePorNome(@RequestParam String nome);
 
+	@GetMapping("/buscaTecnico")
+	@ResponseStatus(value = HttpStatus.OK)
+	List<BuscaDescarteDTO> buscaTecnicoPorNome(@RequestParam String nome);
+
+	@GetMapping("/buscaDataEntrada")
+	@ResponseStatus(value = HttpStatus.OK)
+	List<BuscaDescarteDTO> buscaDataEntrada(@RequestParam String data);
+
+	@GetMapping("/detalhaDescarte/{idDescarte}")
+	@ResponseStatus(value = HttpStatus.OK)
+	DetalhaDescarteFinalDTO detalhaDescarte (@PathVariable Long idDescarte);
 }

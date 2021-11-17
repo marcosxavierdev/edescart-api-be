@@ -5,22 +5,27 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import dev.edescart.descarte.domain.Descarte;
+import dev.edescart.destino.domain.Destino;
 
 @Service
 public interface DescarteService {
 
-	Descarte buscaEquipamentoPorIdService(Long idEquipamento);
+	Descarte buscaDescartePorIdService(Long idDescarte);
 
-	Descarte cadastraEquipamentoService(Descarte descarte);
+	Descarte cadastraDescarteService(Descarte descarte);
 
-	boolean verificaIdService(Long idEquipamento);
+	boolean verificaIdDescarteService(Long idDescarte);
 
-	void deletaEquipamentoService(Long idEquipamento);
+	void deletaDescarteService(Long idDescarte);
 
-	Descarte atualizaEquipamentoService(Descarte descarte);
+	Descarte atualizaDescarteService(Descarte descarte);
 
-	List<Descarte> listaEquipamentosService();
+	List<Descarte> listaDescartesService();
 
 	List<Descarte> buscaClientePorNomeService(String nome);
+
+	List<Descarte> buscaTecnicoPorNomeService(String nome);
+
+	List<Descarte> buscaDataEntradaService(String data);
 
 }

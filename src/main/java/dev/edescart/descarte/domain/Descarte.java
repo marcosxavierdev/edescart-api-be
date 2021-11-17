@@ -1,19 +1,21 @@
 package dev.edescart.descarte.domain;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import dev.edescart.descarte.domain.enums.SituacaoDoItem;
 import dev.edescart.descarte.domain.enums.TipoDoItem;
+import dev.edescart.destino.domain.Destino;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Builder
 @Entity
 @Getter
 @Setter
@@ -33,12 +35,13 @@ public class Descarte {
 	private String cliente;
 	private String autorizacaoEmpresa;
 	private String tecnicoResponsavel;
-	private LocalDateTime dataEntrada;
+	private String dataEntrada;
 	private int descartarEm;
 	private String motivoDescarte;
 	private String origemObservacao;
 
 	private SituacaoDoItem situacaoDoItem;
 	private TipoDoItem tipoDoItem;
+
 
 }

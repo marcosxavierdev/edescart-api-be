@@ -1,7 +1,5 @@
 package dev.edescart.descarte.application.api.dto;
 
-import java.time.LocalDateTime;
-
 import dev.edescart.descarte.domain.Descarte;
 import dev.edescart.descarte.domain.enums.SituacaoDoItem;
 import dev.edescart.descarte.domain.enums.TipoDoItem;
@@ -20,7 +18,7 @@ public class CadastraDescarteDTO {
 	private String cliente;
 	private String autorizacaoEmpresa;
 	private String tecnicoResponsavel;
-	private LocalDateTime dataEntrada;
+	private String dataEntrada;
 	private int descartarEm;
 	private String motivoDescarte;
 	private String origemObservacao;

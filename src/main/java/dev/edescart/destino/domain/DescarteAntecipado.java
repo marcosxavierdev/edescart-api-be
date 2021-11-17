@@ -1,7 +1,7 @@
-package dev.edescart.descarte.domain.enums;
+package dev.edescart.destino.domain;
 
 public enum DescarteAntecipado {
-	
+
 	SIM, NAO;
 
 }

@@ -1,9 +1,9 @@
 package dev.edescart.descarte.application.api.form;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import dev.edescart.descarte.domain.Descarte;
-import dev.edescart.descarte.domain.enums.DescarteAntecipado;
 import dev.edescart.descarte.domain.enums.SituacaoDoItem;
 import dev.edescart.descarte.domain.enums.TipoDoItem;
 import lombok.Getter;
@@ -22,19 +22,21 @@ public class CadastraDescarteFORM {
 	private String cliente;
 	private String autorizacaoEmpresa;
 	private String tecnicoResponsavel;
-	private LocalDateTime dataEntrada = LocalDateTime.now();
+	private String dataEntrada = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	private int descartarEm;
 	private String motivoDescarte;
 	private String origemObservacao;
 
 	private SituacaoDoItem situacaoDoItem;
 	private TipoDoItem tipoDoItem;
-	private DescarteAntecipado descarteAntecipado;
 
-	public Descarte toEntity() {
-		return new Descarte(id, nome, modelo, marca, unidade, quantidade, observacao, cliente,
-				autorizacaoEmpresa, tecnicoResponsavel, dataEntrada, descartarEm, motivoDescarte, origemObservacao,
-				situacaoDoItem, tipoDoItem);
+	public Descarte buildDescarte() {
+		return Descarte.builder().id(this.id).nome(this.nome).modelo(this.modelo).marca(this.marca).unidade(this.unidade)
+				.quantidade(this.quantidade).observacao(this.observacao).cliente(this.cliente)
+				.autorizacaoEmpresa(this.autorizacaoEmpresa).tecnicoResponsavel(this.tecnicoResponsavel)
+				.dataEntrada(this.dataEntrada).descartarEm(this.descartarEm).motivoDescarte(this.motivoDescarte)
+				.origemObservacao(this.origemObservacao).situacaoDoItem(this.situacaoDoItem).tipoDoItem(this.tipoDoItem)
+				.build();
 	}
 
 }
