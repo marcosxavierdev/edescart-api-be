@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import dev.edescart.descarte.application.api.dto.BuscaDescarteDTO;
-import dev.edescart.descarte.application.api.form.AtualizaDescarteFORM;
 import dev.edescart.destino.application.api.dto.BuscaDestinoDTO;
 import dev.edescart.destino.application.api.form.AtualizaDestinoFORM;
 import dev.edescart.destino.application.api.form.CriaDestinoFORM;
@@ -34,24 +32,24 @@ public interface DestinoAPI {
 	@GetMapping("/{idDestino}")
 	@ResponseStatus(value = HttpStatus.OK)
 	BuscaDestinoDTO buscaDestinoPorId(@PathVariable Long idDestino);
-	
+
 	@GetMapping
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDestinoDTO> listaDestinos();
-	
+
 	@GetMapping("/destinosPorNome")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDestinoDTO> buscaDestinoPorNome(@RequestParam String destino);
-	
+
 	@GetMapping("/destinosPorDataSaida")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDestinoDTO> buscaDataSaida(@RequestParam String data);
-	
+
 	@Transactional
 	@DeleteMapping("/destino/{idDestino}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	ResponseEntity<Void> deletaDestino(@PathVariable Long idDestino);
-	
+
 	@Transactional
 	@PutMapping("/destino/{idDestino}")
 	@ResponseStatus(value = HttpStatus.OK)
