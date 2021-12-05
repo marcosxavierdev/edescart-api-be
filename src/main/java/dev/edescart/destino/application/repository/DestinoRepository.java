@@ -27,4 +27,6 @@ public interface DestinoRepository {
 
 	Destino atualizaDestinoInfra(Destino buildDestino);
 
+	Optional<Destino> buscaDestinoPorFKInfra(Long idDestino);
+
 }

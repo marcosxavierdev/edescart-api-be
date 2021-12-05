@@ -7,12 +7,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import dev.edescart.descarte.application.api.dto.CadastraDescarteDTO;
 import dev.edescart.descarte.application.api.dto.BuscaDescarteDTO;
+import dev.edescart.descarte.application.api.dto.CadastraDescarteDTO;
+import dev.edescart.descarte.application.api.dto.DetalhaDescarteFinalDTO;
 import dev.edescart.descarte.application.api.form.AtualizaDescarteFORM;
 import dev.edescart.descarte.application.api.form.CadastraDescarteFORM;
 import dev.edescart.descarte.application.service.DescarteService;
 import dev.edescart.descarte.domain.Descarte;
+import dev.edescart.destino.application.service.DestinoService;
+import dev.edescart.destino.domain.Destino;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -21,6 +24,7 @@ import lombok.extern.log4j.Log4j2;
 @RestController
 public class DescarteRestController implements DescarteAPI {
 	private DescarteService descarteService;
+	private DestinoService destinoService;
 
 	@Override
 	public String test() {
@@ -60,7 +64,7 @@ public class DescarteRestController implements DescarteAPI {
 	}
 
 	@Override
-	public ResponseEntity<?> atualizaDescarte(Long idDescarte, AtualizaDescarteFORM atualizaDescarteFORM) {
+	public ResponseEntity<Descarte> atualizaDescarte(Long idDescarte, AtualizaDescarteFORM atualizaDescarteFORM) {
 		log.info("[Iniciando] - Método atualizaDescarte em DescarteRestController");
 		if (!descarteService.verificaIdDescarteService(idDescarte)) {
 			log.info("[Finalizando] - Método atualizaDescarte em DescarteRestController [NOT FOUND]");
@@ -102,6 +106,13 @@ public class DescarteRestController implements DescarteAPI {
 		List<Descarte> descartes = descarteService.buscaDataEntradaService(data);
 		log.info("[Finalizando] - Método buscaDataEntrada em DescarteRestController");
 		return BuscaDescarteDTO.toList(descartes);
+	}
+
+	@Override
+	public DetalhaDescarteFinalDTO detalhaDescarte(Long idDescarte) {
+		Descarte descarte = descarteService.buscaDescartePorIdService(idDescarte);
+		Destino destino = destinoService.buscaDestinoPorFK(idDescarte);
+		return new DetalhaDescarteFinalDTO(descarte, destino);
 	}
 
 }

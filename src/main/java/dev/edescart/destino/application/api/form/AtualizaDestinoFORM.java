@@ -22,7 +22,7 @@ public class AtualizaDestinoFORM {
 	private DescarteAntecipado descarteAntecipado = DescarteAntecipado.NAO;
 
 	public Destino buildDestino() {
-		return Destino.builder().destino(destino).autorizacaoDestino(this.autorizacaoDestino)
+		return Destino.builder().id(this.id).destino(destino).autorizacaoDestino(this.autorizacaoDestino)
 				.contatoDestino(this.contatoDestino).dataSaida(this.dataSaida).observacaoDestino(this.observacaoDestino)
 				.descarteAntecipado(this.descarteAntecipado).build();
 	}

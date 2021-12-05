@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
+import dev.edescart.descarte.domain.Descarte;
 import dev.edescart.destino.application.repository.DestinoRepository;
 import dev.edescart.destino.domain.Destino;
 import lombok.AllArgsConstructor;
@@ -75,6 +76,14 @@ public class DestinoJpaRepository implements DestinoRepository {
 		Destino novoDestino = destinoSpringDataJpaRepository.save(buildDestino);
 		log.info("[Finalizando] - Método atualizaDestinoInfra em DestinoJpaRepository");
 		return novoDestino;
+	}
+
+	@Override
+	public Optional<Destino> buscaDestinoPorFKInfra(Long idDestino) {
+		log.info("[Iniciando] - Método buscaDestinoPorIdInfra em DestinoJpaRepository");
+		Optional<Destino> destinoPorFK = destinoSpringDataJpaRepository.findByDescarteId(idDestino);
+		log.info("[Finalizando] - Método buscaDestinoPorIdInfra em DestinoJpaRepository");
+		return destinoPorFK;
 	}
 
 }

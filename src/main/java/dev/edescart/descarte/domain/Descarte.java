@@ -43,7 +43,5 @@ public class Descarte {
 	private SituacaoDoItem situacaoDoItem;
 	private TipoDoItem tipoDoItem;
 
-	@OneToOne
-	private Destino destino;
 
 }
