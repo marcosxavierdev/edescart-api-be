@@ -31,29 +31,29 @@ public interface DestinoAPI {
 	@ResponseStatus(value = HttpStatus.CREATED)
 	void criaDestino(@PathVariable Long idDescarte, @RequestBody CriaDestinoFORM criaDestinoFORM);
 
-	@GetMapping("/destino/{idDestino}")
+	@GetMapping("/{idDestino}")
 	@ResponseStatus(value = HttpStatus.OK)
 	BuscaDestinoDTO buscaDestinoPorId(@PathVariable Long idDestino);
 	
-	@GetMapping("/listaDestinos")
+	@GetMapping
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDestinoDTO> listaDestinos();
 	
-	@GetMapping("/buscaDestino")
+	@GetMapping("/destinosPorNome")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDestinoDTO> buscaDestinoPorNome(@RequestParam String destino);
 	
-	@GetMapping("/buscaDataSaida")
+	@GetMapping("/destinosPorDataSaida")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDestinoDTO> buscaDataSaida(@RequestParam String data);
 	
 	@Transactional
-	@DeleteMapping("/destino/deleta/{idDestino}")
+	@DeleteMapping("/destino/{idDestino}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	ResponseEntity<Void> deletaDestino(@PathVariable Long idDestino);
 	
 	@Transactional
-	@PutMapping("/destino/atualiza/{idDestino}")
+	@PutMapping("/destino/{idDestino}")
 	@ResponseStatus(value = HttpStatus.OK)
 	ResponseEntity<?> atualizaDestino(@PathVariable Long idDestino,
 			@RequestBody AtualizaDestinoFORM atualizaDestinoFORM);

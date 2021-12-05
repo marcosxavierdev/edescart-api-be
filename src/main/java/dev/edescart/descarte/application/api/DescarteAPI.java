@@ -30,39 +30,39 @@ public interface DescarteAPI {
 	@GetMapping("/test")
 	String test();
 
-	@GetMapping("/buscaPorId/{idDescarte}")
+	@GetMapping("/{idDescarte}")
 	@ResponseStatus(value = HttpStatus.OK)
 	BuscaDescarteDTO buscaDescartePorId(@PathVariable Long idDescarte);
 
-	@PostMapping("/cadastra")
+	@PostMapping
 	@ResponseStatus(value = HttpStatus.CREATED)
 	ResponseEntity<CadastraDescarteDTO> cadastraDescarte(@RequestBody CadastraDescarteFORM cadastraDescarteFORM,
 			UriComponentsBuilder uriBuilder);
 
 	@Transactional
-	@DeleteMapping("/deleta/{idDescarte}")
+	@DeleteMapping("/{idDescarte}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	ResponseEntity<Void> deletaDescarte(@PathVariable Long idDescarte);
 
 	@Transactional
-	@PutMapping("/atualiza/{idDescarte}")
+	@PutMapping("/{idDescarte}")
 	@ResponseStatus(value = HttpStatus.OK)
 	ResponseEntity<?> atualizaDescarte(@PathVariable Long idDescarte,
 			@RequestBody AtualizaDescarteFORM atualizaDescarteFORM);
 
-	@GetMapping("/listaDescartes")
+	@GetMapping
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDescarteDTO> listaDescartes();
 
-	@GetMapping("/buscaCliente")
+	@GetMapping("/descartesPorCliente")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDescarteDTO> buscaClientePorNome(@RequestParam String nome);
 
-	@GetMapping("/buscaTecnico")
+	@GetMapping("/descartesPorTecnico")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDescarteDTO> buscaTecnicoPorNome(@RequestParam String nome);
 
-	@GetMapping("/buscaDataEntrada")
+	@GetMapping("/descartesPorDataEntrada")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<BuscaDescarteDTO> buscaDataEntrada(@RequestParam String data);
 
